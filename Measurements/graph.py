@@ -4,16 +4,10 @@
 import matplotlib.pyplot as plt
 
 trials = [1, 2, 3, 4, 5]
-densities = [
-    0.914141414,
-    0.969696970,
-    0.953525641,
-    0.995500000,
-    0.991816367
-]
+densities = [0.988, 0.970, 0.977333333, 0.98075, 0.9834]
 
-average_density = 0.964936078
-true_density = 0.9978  # Water density at 22°C
+average_density = 0.979896667
+true_density = 0.99802  # Water density at 21°C, g/mL
 
 plt.figure(figsize=(9, 6))
 
@@ -34,20 +28,20 @@ plt.axhline(
     label=f"Average Density = {average_density:.4f} g/mL"
 )
 
-# True density line
+# True/theoretical density line
 plt.axhline(
     true_density,
     linestyle="-",
     linewidth=2.5,
     color="red",
-    label=f"True Density at 22°C = {true_density:.4f} g/mL"
+    label=f"True Density at 21°C = {true_density:.4f} g/mL"
 )
 
-# Add density values above bars
+# Add density values above each bar
 for bar, density in zip(bars, densities):
     plt.text(
         bar.get_x() + bar.get_width() / 2,
-        bar.get_height() + 0.006,
+        bar.get_height() + 0.0015,
         f"{density:.4f}",
         ha="center",
         va="bottom",
@@ -56,10 +50,10 @@ for bar, density in zip(bars, densities):
 
 plt.xlabel("Trial", fontsize=12)
 plt.ylabel("Density (g/mL)", fontsize=12)
-plt.title("Density Measurements of Water — 100 mL Beaker at 22°C")
+plt.title("Density Measurements of Water — Volumetric Pipette at 21°C", fontsize=14)
 
 plt.xticks(trials)
-plt.ylim(0.85, 1.03)
+plt.ylim(0.94, 1.01)
 
 plt.grid(axis="y", linestyle=":", alpha=0.5)
 plt.legend()
