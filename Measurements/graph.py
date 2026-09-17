@@ -2,11 +2,17 @@
 
 import matplotlib.pyplot as plt
 
-trials = [1, 2, 3, 4]
-densities = [7.13, 7.45, 6.84, 7.77]
+trials = [1, 2, 3, 4, 5]
+densities = [
+    0.914141414,
+    0.969696970,
+    0.953525641,
+    0.995500000,
+    0.991816367
+]
 
-average_density = 7.2975
-true_density = 7.18  # Approximate density of a modern U.S. penny
+average_density = 0.964936078
+true_density = 0.9978  # Water density at 22°C
 
 plt.figure(figsize=(9, 6))
 
@@ -24,35 +30,35 @@ plt.axhline(
     linestyle="--",
     linewidth=2.5,
     color="blue",
-    label=f"Average Density = {average_density:.4f} g/cm³"
+    label=f"Average Density = {average_density:.4f} g/mL"
 )
 
-# True/theoretical density line
+# True density line
 plt.axhline(
     true_density,
     linestyle="-",
     linewidth=2.5,
     color="red",
-    label=f"True Density = {true_density:.2f} g/cm³"
+    label=f"True Density at 22°C = {true_density:.4f} g/mL"
 )
 
-# Add density values above each bar
+# Add density values above bars
 for bar, density in zip(bars, densities):
     plt.text(
         bar.get_x() + bar.get_width() / 2,
-        bar.get_height() + 0.08,
-        f"{density:.2f}",
+        bar.get_height() + 0.006,
+        f"{density:.4f}",
         ha="center",
         va="bottom",
         fontsize=10
     )
 
 plt.xlabel("Trial", fontsize=12)
-plt.ylabel("Density (g/cm³)", fontsize=12)
-plt.title("Density Measurements of a Penny", fontsize=14)
+plt.ylabel("Density (g/mL)", fontsize=12)
+plt.title("Density Measurements of Water — 100 mL Beaker at 22°C")
 
 plt.xticks(trials)
-plt.ylim(6.5, 8.1)
+plt.ylim(0.85, 1.03)
 
 plt.grid(axis="y", linestyle=":", alpha=0.5)
 plt.legend()
