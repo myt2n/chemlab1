@@ -55,7 +55,7 @@ for bar, density in zip(bars, densities):
 
 plt.xlabel("Trial", fontsize=12)
 plt.ylabel("Density (g/mL)", fontsize=12)
-plt.title("Density Measurements of Water — 100 mL Beaker at 22°C")
+plt.title("Density Measurements of Water — 100 mL Graduated Cylinder at 22°C")
 
 plt.xticks(trials)
 plt.ylim(0.85, 1.03)
